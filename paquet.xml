@@ -1,0 +1,56 @@
+<paquet
+	prefix="abus"
+	categorie="communication"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.0.4;3.0.*]"
+	logo="prive/themes/spip/images/abus-64.png"
+	documentation=""
+	schema="1.0.1" 
+>
+	<!--
+		Paquet généré le 2012-09-07 16:58:03
+		(Vous pouvez bien entendu supprimer ces commentaires) 
+	-->
+
+	<nom>Signaler des abus</nom>
+
+	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs --> 
+	<auteur>My Chacra</auteur>
+
+	<licence>GNU/GPL</licence>
+
+	<!--
+		Exemple de commandes
+		* dependances
+		<necessite nom="saisies" compatibilite="[1.21.0;]" />
+		<utilise nom="saisies" compatibilite="[1.21.0;]" />
+		<lib nom="simplehtmldom" lien="http://chemin_vers_archive.zip" />
+		* pipelines
+		<pipeline nom="autoriser" inclure="abus_autorisations.php" />
+		<pipeline nom="insert_head" inclure="abus_pipelines.php" />
+		* declarer un pipeline 
+		<pipeline nom="mon_pipeline" action="" />
+		* parents de menus de SPIP :
+				menu_accueil (à éviter), menu_edition, menu_publication,
+				menu_activite, menu_squelette, menu_administration, menu_configuration 
+		<menu nom="abus" titre="abus:abus_titre" parent="menu_edition"  icone="images/abus-16.png" />
+		* parents d'onglets... configuration, plugins, statistiques, ... 
+		<onglet nom="abus" titre="abus:abus_titre" parent="configuration" icone="images/abus-24.png" />
+	-->
+
+	<necessite nom="saisies" compatibilite="[1.24.0;]" /> 
+	<necessite nom="facteur" compatibilite="[2.2.5;]" /> 
+	<necessite nom="nospam" compatibilite="[1.0.3;]" /> 	
+	
+	<pipeline nom="autoriser" inclure="abus_autorisations.php" /> 
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/abus.php" /> 
+	<pipeline nom="declarer_tables_interfaces" inclure="base/abus.php" /> 
+	<pipeline nom="affiche_auteurs_interventions" inclure="abus_pipelines.php" /> 
+	<pipeline nom="nospam_lister_formulaires" inclure="abus_pipelines.php" /> 
+	<pipeline nom="formulaire_verifier" inclure="abus_pipelines.php" /> 	
+	<pipeline nom="pre_edition" inclure="abus_pipelines.php" /> 	
+	<pipeline nom="boite_infos" inclure="abus_pipelines.php" /> 	
+
+	<menu nom="abusobjets" titre="abus:titre_abusobjets" parent="menu_edition" icone="images/abusobjet-16.png" action="abusobjets" /> 
+</paquet>

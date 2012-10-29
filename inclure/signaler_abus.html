@@ -1,0 +1,19 @@
+<div class="bouton_signaler ajax">
+	[(#REM) desactiv&eacute;
+	[(#BOUTON_ACTION{<:abus:signaler_abus:>,#URL_ACTION_AUTEUR{signaler_abus,#ENV{id_objet}-#ENV{objet},#ENV{retour}},#ENV{action,signaler_abus},#ENV{avis}})]
+	]
+	
+	<BOUCLE_teste(ABUSOBJETS){id_objet}{objet}{id_auteur ?}{ip ?} {statut ?}>
+	<:abus:abus_signale:>
+	</BOUCLE_teste>
+	[(#ENV{signaler_abus}|non)
+		<a class="ajax signale_abus" href="[(#SELF|parametre_url{signaler_abus,oui})]" rel="nofollow"  title="<:abus:signaler_abus:>"><:abus:signaler_abus:></a>
+	]
+	
+	[(#ENV{signaler_abus}|oui)
+		<a class="ajax" href="[(#SELF|parametre_url{signaler_abus,''})]" rel="nofollow"  title="<:abus:fermer:>" class="fermer">x</a>
+		[(#FORMULAIRE_SIGNALER_ABUS{#ENV{objet},#ENV{id_objet}})]
+	]
+	<//B_teste>
+</div>
+

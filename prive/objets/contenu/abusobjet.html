@@ -1,0 +1,33 @@
+<BOUCLE_abusobjet(ABUSOBJETS){id_abusobjet}{statut?}>
+
+[<div class="champ contenu_id_objet[ (#ID_OBJET*|strlen|?{'',vide})]">
+	<label><:abusobjet:label_id_objet:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{id_objet} id_objet'>(#ID_OBJET)</span>
+</div>]
+
+[<div class="champ contenu_objet[ (#OBJET*|strlen|?{'',vide})]">
+	<label><:abusobjet:label_objet:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{objet} objet'>(#OBJET)</span>
+</div>]
+
+[<div class="champ contenu_id_auteur[ (#ID_AUTEUR*|strlen|?{'',vide})]">
+	<label><:abusobjet:label_id_auteur:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{id_auteur} id_auteur'>(#ID_AUTEUR)</span>
+</div>]
+
+[<div class="champ contenu_ip[ (#IP*|strlen|?{'',vide})]">
+	<label><:abusobjet:label_ip:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{ip} ip'>(#IP)</span>
+</div>]
+
+[<div class="champ contenu_statut[ (#STATUT*|strlen|?{'',vide})]">
+	<label><:abusobjet:label_statut:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{statut} statut'>(#STATUT)</span>
+</div>]
+
+[<div class="champ contenu_maj[ (#MAJ*|strlen|?{'',vide})]">
+	<label><:abusobjet:label_maj:> : </label>
+	<span dir='#LANG_DIR' class='#EDIT{maj} maj'>(#MAJ)</span>
+</div>]
+
+</BOUCLE_abusobjet>

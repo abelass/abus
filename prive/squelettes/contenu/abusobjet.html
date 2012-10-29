@@ -1,0 +1,46 @@
+[(#AUTORISER{voir,abusobjet,#ID_ABUSOBJET}|sinon_interdire_acces)]
+<BOUCLE_abusobjet(ABUSOBJETS){id_abusobjet}{statut==.*}{si #ENV{exec}|=={abusobjet}}>
+[(#BOITE_OUVRIR{[
+	[(#AUTORISER{modifier,abusobjet,#ID_ABUSOBJET})
+		[(#ID_ABUSOBJET|afficher_qui_edite{abusobjet}|non)
+			[(#URL_ECRIRE{abusobjet_edit,id_abusobjet=#ID_ABUSOBJET}|icone_verticale{<:abusobjet:icone_modifier_abusobjet:>,abusobjet,edit,right ajax preload})]
+		]
+		[(#ID_ABUSOBJET|afficher_qui_edite{abusobjet}|oui)
+			[(#URL_ECRIRE{abusobjet_edit,id_abusobjet=#ID_ABUSOBJET}|icone_verticale{#ID_ABUSOBJET|afficher_qui_edite{abusobjet},warning-24,'',right edition_deja ajax preload})]
+		]
+	]
+
+	<h1>[(#RANG). ](#|sinon{<:info_sans_titre:>})[(#CHEMIN_IMAGE{abusobjet-24.png}|balise_img{abusobjet,cadre-icone})]</h1>
+
+],simple fiche_objet})]
+
+<div class="ajax">
+	#FORMULAIRE_DATER{abusobjet,#ID_ABUSOBJET}
+</div>
+
+<!--affiche_milieu-->
+
+<div id="wysiwyg">
+<INCLURE{fond=prive/objets/contenu/abusobjet,id=#ID_ABUSOBJET,id_abusobjet=#ID_ABUSOBJET,virtuel=oui,ajax=wysiwyg,wysiwyg=1}>
+</div>
+
+<div class="nettoyeur"></div>
+
+[(#AUTORISER{modifier,abusobjet,#ID_ABUSOBJET})
+	[(#ID_ABUSOBJET|afficher_qui_edite{abusobjet}|non)
+		[(#URL_ECRIRE{abusobjet_edit,id_abusobjet=#ID_ABUSOBJET}|icone_verticale{<:abusobjet:icone_modifier_abusobjet:>,abusobjet,edit,right ajax preload})]
+	]
+	[(#ID_ABUSOBJET|afficher_qui_edite{abusobjet}|oui)
+		[(#URL_ECRIRE{abusobjet_edit,id_abusobjet=#ID_ABUSOBJET}|icone_verticale{#ID_ABUSOBJET|afficher_qui_edite{abusobjet},warning-24,'',right edition_deja ajax preload})]
+	]
+]
+
+#PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,abusobjet,id,#ID_ABUSOBJET},data,'<div class="nettoyeur"></div>'}}
+
+#BOITE_FERMER
+[(#EVAL{_AJAX}|oui)
+	<script type="text/javascript">/*<!\\[CDATA\\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin');/*\\]\\]>*/</script>
+]
+</BOUCLE_abusobjet>
+[(#ENV**{exec}|=={abusobjet_edit}|?{#INCLURE{fond=prive/squelettes/contenu/abusobjet_edit,redirect='',env,retourajax=oui},#REM|sinon_interdire_acces})]
+<//B_abusobjet>

@@ -1,0 +1,43 @@
+[(#REM)D&eacute;terminer les objets d&eacute;clar&eacute;s]
+
+
+
+#SET{objets,#ARRAY}
+<BOUCLE_objets_liste(DATA){source tableau,#VAL|lister_tables_objets_sql}{par cle}{editable = oui}>
+	
+	[(#VALEUR{page}|is_string|oui)
+		[(#VALEUR{page}|!={abusobjet}|oui)
+			[(#SET{objets,#GET{objets}|array_merge{#ARRAY{#VALEUR{page},#VALEUR{texte_objets}|_T}}})]
+			]
+		]
+</BOUCLE_objets_liste>
+
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+
+	<h3 class="titrem"><:abus:cfg_titre_parametrages:></h3>
+
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	<form method="post" action="#ENV{action}">
+	<div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+
+		<ul>
+			[(#SAISIE{input,emails_abus,
+				label=<:abus:cfg_emails_abus:>,
+				explication=<:abus:cfg_emails_abus_explication:>})]
+
+
+			[(#SAISIE{checkbox,objets_verifier,
+				label=<:abus:objets_verifier:>,
+				datas=#GET{objets}}
+				)]
+
+		</ul>
+
+		<input type="hidden" name="_meta_casier" value="abus" />
+		<p class="boutons"><span class="image_loading">&nbsp;</span><input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+	</div>
+	</form>
+</div>
