@@ -11,8 +11,8 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 function abus_boite_infos($flux){
 	include_spip('inc/config');
-	$fond=$flux['args']['fond'] ;
-	$texte=$flux['data']['texte'];
+	$fond=$flux['args']['fond'];
+	//$texte=$flux['data']['texte'];
 	$contexte=$flux['args']['contexte'];
 	
     $objets=lire_config('abus/objets_verifier')?lire_config('abus/objets_verifier'):array();
