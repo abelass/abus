@@ -1,8 +1,5 @@
 <div class="bouton_signaler ajax">
-	[(#REM) desactiv&eacute;
-	[(#BOUTON_ACTION{<:abus:signaler_abus:>,#URL_ACTION_AUTEUR{signaler_abus,#ENV{id_objet}-#ENV{objet},#ENV{retour}},#ENV{action,signaler_abus},#ENV{avis}})]
-	]
-	
+
 	<BOUCLE_teste(ABUSOBJETS){id_objet}{objet}{id_auteur ?}{ip ?} {statut ?}>
 	<:abus:abus_signale:>
 	</BOUCLE_teste>
