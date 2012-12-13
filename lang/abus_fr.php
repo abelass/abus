@@ -10,6 +10,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abus_statut' => 'Statut abus :',	
 
 	// C
+    'commentaire' => 'Comment', 	
 	'cfg_exemple' => 'Exemple',
 	'cfg_exemple_explication' => 'Explication de cet exemple',
 	'cfg_titre_parametrages' => 'Paramétrages',
@@ -39,6 +40,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// R
 	'retirer_lien_abusobjet' => 'Retirer ce objet abusif',
 	'retirer_tous_liens_abusabusobjets' => 'Retirer tous les objets abusives',
+
+    // S
+    'signaler_abus' => 'This content is abusive',
+    'signaler_abus_form' => 'This content is abusive',  
+    'signaler_abus_avis' => 'This action is irreversible, do you really want to declare this content as abusive?',
+    'statut_abus_refuser'=>'Not abusive',
+    'statut_abus_accepter'=>'Confirm abuse',    
+    'statut_abus_spam'=>'Spam',
+
 
 	// T
 	'texte_ajouter_abusobjet' => 'Ajouter un objet abusif',

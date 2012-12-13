@@ -7,10 +7,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
 	'abus' => 'Abuse',
+	'abus_declare_objet' => 'Following content has been declared as abusive',	
+	'abus_declare_commentaire'=>'for the follwing reasons',	
+	'abus_declare_par'=>'Abuse declared by',
 	'abus_signale' => 'Abuse reported',
 	'abus_statut' => 'Abuse status:',
 	'abus_titre' => 'Signaler des abus',
+	
+    //
+    'bonjour' => 'Hi,',	
+    
 	// C
+	'commentaire' => 'Comment',	
 	'cfg_emails_abus' => 'Email adresses where abuse notification will be sent to',
 	'cfg_emails_abus_explication' => 'Enter the email adresses seperated by comma',
 	'cfg_titre_parametrages' => 'Paramétrages',
@@ -48,6 +56,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'signaler_abus' => 'This content is abusive',
+	'signaler_abus_form' => 'This content is abusive',	
 	'signaler_abus_avis' => 'This action is irreversible, do you really want to declare this content as abusive?',
 	'statut_abus_refuser'=>'Not abusive',
 	'statut_abus_accepter'=>'Confirm abuse',	
