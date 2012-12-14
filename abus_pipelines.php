@@ -32,6 +32,7 @@ function abus_boite_infos($flux){
 
 
 /**
+ * Lister les formulaires a prendre en charge contre le SPAM
  * Ajout aux objets de nospam
  */
 function abus_nospam_lister_formulaires($flux) {
