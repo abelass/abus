@@ -69,7 +69,7 @@ function abus_declarer_tables_objets_sql($tables) {
 			'accepte'=>'statut_accepte.png',
 			'refuse'=>'statut_refuse.png',
 			'spam'=>'statut_spam.png'),
-		'texte_changer_statut' => 'abust:texte_changer_statut_abusobjet', 
+		'texte_changer_statut' => 'abus:texte_changer_statut_abusobjet', 
 		
 
 	);
