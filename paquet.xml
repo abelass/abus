@@ -1,7 +1,7 @@
 <paquet
 	prefix="abus"
 	categorie="communication"
-	version="1.0.0"
+	version="1.1.0"
 	etat="dev"
 	compatibilite="[3.0.4;3.0.*]"
 	logo="prive/themes/spip/images/abus-64.png"

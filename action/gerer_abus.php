@@ -15,6 +15,7 @@ function action_gerer_abus_dist($arg=null) {
 	
 	include_spip('inc/session');
 	include_spip('inc/config');
+    
 
 	//Les variables
 	list($id_objet,$objet,$statut,$args)= explode("-",$arg);
@@ -32,7 +33,11 @@ function action_gerer_abus_dist($arg=null) {
 			break;
 		}
 	
-	sql_updateq('spip_abusobjets',array('statut'=>$statut),'id_objet='.$id_objet.' AND objet ='.sql_quote($objet));
+    if(!sql_getfetsel('statut','spip_abusobjets','id_objet='.$id_objet.' AND objet ='.sql_quote($objet))){
+            $signaler=charger_fonction('signaler_abus','inc');
+            $signaler=$signaler($id_objet,$objet,$statut);
+        }
+    else sql_updateq('spip_abusobjets',array('statut'=>$statut),'id_objet='.$id_objet.' AND objet ='.sql_quote($objet));
 
 
 	return array($id_objet,$objet);
