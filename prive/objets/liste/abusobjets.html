@@ -1,21 +1,18 @@
-[(#SET{defaut_tri,#ARRAY{
-	id_abusobjet,1,
-	points,-1
-}})]<B_liste_abusobjets>
+<B_liste_abusobjets>
 #ANCRE_PAGINATION
 <div class="liste-objets abusobjets">
 <table class='spip liste'>
 	[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{abus:info_1_abusobjet,abus:info_nb_abusobjets}})</strong></caption>]
 	<thead>
 		<tr class='first_row'>
-			<th class='statut' scope='col'>[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th> 
+			<th class='statut' scope='col'>#</th> 
 			<th class='principale' scope='col'><:info_titre:></th>
 			<th class='commentaire' scope='col'><:abus:label_commentaire:></th>
-			<th class='id' scope='col'>[(#TRI{id_abusobjet,<:info_numero_abbreviation:>,ajax})]</th>
+			<th class='id' scope='col'><:info_numero_abbreviation:></th>
 		</tr>
 	</thead>
 	<tbody>
-	<BOUCLE_liste_abusobjets(ABUSOBJETS){id_objet?}{id_auteur?}{id_mot?}{id_auteur?}{where?}{statut?}{recherche?}{tri #ENV{par,num },#GET{defaut_tri}}{par }{pagination #ENV{nb,10}}>#SET{donnees_objet,#OBJET|donnees_objet{#ID_OBJET}}
+	<BOUCLE_liste_abusobjets(ABUSOBJETS){id_objet?}{id_auteur?}{id_mot?}{id_auteur?}{statut?}{recherche?}{!par maj}{pagination #ENV{nb,10}}>#SET{donnees_objet,#OBJET|donnees_objet{#ID_OBJET}}
 		<tr class='[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]'>
 			<td class='statut'>[(#STATUT|puce_statut{abusobjet,#ID_ABUSOBJET}|image_reduire{16})]</td> 
 			<td class='principale'>[(#LOGO_ABUSOBJET|image_reduire{20,26})]<a href="[(#GET{donnees_objet}|table_valeur{id_#OBJET}|generer_url_entite{article})]" title="<:info_numero_abbreviation|attribut_html:> #ID_ABUSOBJET">[(#GET{donnees_objet}|table_valeur{titre})] [(<:abus:abus:> (#VAL{abus:texte_statut_abus_#STATUT}|_T))]</a>
