@@ -58,7 +58,7 @@ function abus_declarer_tables_objets_sql($tables) {
 			array(
 				'champ'     => 'statut',
 				'publie'    => 'accepte',
-				'previsu'   => 'publie,prop,prepa',
+				'previsu'   => 'accepte,signale',
 				'post_date' => 'date', 
 				'exception' => array('statut','tout')
 			)
